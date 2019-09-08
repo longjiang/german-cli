@@ -61,7 +61,7 @@ import YouTubeNav from '@/components/YouTubeNav'
 import YouTubeChannelCard from '@/components/YouTubeChannelCard'
 import Helper from '@/lib/helper'
 
-const LANGUAGE_OPTIONS = ['ru']
+const LANGUAGE_OPTIONS = ['de']
 
 export default {
   components: {
