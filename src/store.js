@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    savedWords: JSON.parse(localStorage.getItem('savedFreeDictWords')) || []
+    savedWords:
+      JSON.parse(localStorage.getItem('savedFreeDictDeuEngWords')) || []
   },
   mutations: {
     ADD_SAVED_WORD(state, wordForms) {
@@ -17,8 +18,9 @@ export default new Vuex.Store({
         })
       ) {
         state.savedWords.push(wordForms)
+        console.log(wordForms, 'saving... wordForms')
         localStorage.setItem(
-          'savedFreeDictWords',
+          'savedFreeDictDeuEngWords',
           JSON.stringify(state.savedWords)
         )
       }
@@ -26,10 +28,10 @@ export default new Vuex.Store({
     REMOVE_SAVED_WORD(state, wordForm) {
       const keepers = state.savedWords.filter(item => !item.includes(wordForm))
       state.savedWords = keepers
-      localStorage.setItem('savedFreeDictWords', JSON.stringify(keepers))
+      localStorage.setItem('savedFreeDictDeuEngWords', JSON.stringify(keepers))
     },
     REMOVE_ALL_SAVED_WORDS(state) {
-      localStorage.removeItem('savedFreeDictWords')
+      localStorage.removeItem('savedFreeDictDeuEngWords')
       state.savedWords = []
     }
   },
@@ -58,7 +60,9 @@ export default new Vuex.Store({
   },
   getters: {
     hasSavedWord: state => text => {
-      let yes = state.savedWords.find(item => item.includes(text))
+      let yes = state.savedWords.find(
+        item => Array.isArray(item) && item.includes(text)
+      )
       return yes
     },
     savedWordCount: state => () => {

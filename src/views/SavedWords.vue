@@ -87,6 +87,7 @@ export default {
       selectedCsvOptions: ['german', 'english'],
       csvOptions: [
         { text: 'German', value: 'german' },
+        { text: 'Pronunciation', value: 'pronunciation' },
         { text: 'English', value: 'english' }
       ]
     }
@@ -129,9 +130,12 @@ export default {
           let a = word.accented
           csv += `${a}\t`
         }
+        if (this.selectedCsvOptions.includes('pronunciation')) {
+          csv += `${word.pronunciation ? word.pronunciation : ''}\t`
+        }
 
         if (this.selectedCsvOptions.includes('english')) {
-          csv += `${word.translations ? word.translations.tl : ''}\t`
+          csv += `${word.definitions ? word.definitions.join(', ') : ''}\t`
         }
         csv += '\n'
       }
@@ -142,7 +146,7 @@ export default {
     },
     async showExportClick() {
       this.showExport = !this.showExport
-      this.csvText = this.csv()
+      this.csvText = await this.csv()
     },
     removeAllClick() {
       const confirmed = confirm(

@@ -42,7 +42,7 @@ const FreeDict = {
             definitions.push(def)
           }
           i = i + 1
-          if(lines[index + i]) {
+          if (lines[index + i]) {
             isDef = !lines[index + i].match(/(.*) \/(.*)\//)
           } else {
             isDef = false
@@ -59,36 +59,12 @@ const FreeDict = {
         words[word.id] = word
       }
     }
-    console.log(words)
     return words
-  },
-  loadTable(table) {
-    return new Promise(resolve => {
-      console.log(`FreeDict: Loading table "${table}"`)
-      Papa.parse(`/data/${table}.csv.txt`, {
-        download: true,
-        header: true,
-        complete: results => {
-          this[table] = []
-          for (let row of results.data) {
-            let word = this.words[row.word_id]
-            if (word) {
-              word[table] = row
-            }
-          }
-          resolve(this)
-        }
-      })
-    })
   },
   load() {
     return new Promise(async resolve => {
       let promises = [this.loadWords()]
-      for (let table of this.tables) {
-        promises.push(this.loadTable(table.name))
-      }
       await Promise.all(promises)
-      this.createIndex()
       resolve(this)
     })
   },
@@ -98,9 +74,6 @@ const FreeDict = {
   lookup(text) {
     let word = this.words.find(word => word && word.bare === text)
     return word
-  },
-  createIndex() {
-    console.log('Indexing...')
   },
   formTable() {
     return this.tables
@@ -123,64 +96,6 @@ const FreeDict = {
       }
     }
     return forms
-  },
-  matchFormsIndexed(text) {
-    text = text.toLowerCase()
-    if (this.cache[text]) {
-      return this.cache[text]
-    }
-    this.cache[text] = []
-    /*
-    We have:
-    this.indexed['систем'] = {
-      form: "систе'м"
-      matches: [
-        {
-          field: "gen"
-          table: "decl_pl"
-          word_id: "341"
-        }
-      ]
-    }
-
-    We want:
-    foundWords = [
-      {
-        id: 341
-        bare: систем
-        matches: [
-          {
-            field: "gen"
-            table: "decl_pl",
-            form: "систе'м"
-          },
-          {...}, ...
-        ]
-        // augmented word data
-      }
-    ]
-    */
-    // First get matched head word (lemma) if there is one
-    let foundWords = this.words
-      .filter(word => word && word.bare.toLowerCase() === text)
-      .map(word => Object.assign({}, word))
-    let indexed = this.index[text]
-    if (indexed && indexed.matches) {
-      for (let match of indexed.matches) {
-        let foundWord = foundWords.find(w => w.id === match.word_id)
-        let word = undefined
-        if (!foundWord) {
-          word = Object.assign({}, this.get(match.word_id))
-          foundWords.push(word)
-        } else {
-          word = foundWord
-        }
-        word.matches = word.matches || []
-        word.matches.push(match)
-      }
-    }
-    this.cache[text] = foundWords
-    return foundWords
   },
   lookupFuzzy(text, limit = 30) {
     return this.words

@@ -22,8 +22,11 @@
             :data-level="word.level || 'outside'"
             >{{ word.accented }}</span
           >&nbsp;
-          <span v-if="word.translations" class="wordlist-item-english">
-            {{ word.translations.tl }}
+          <span v-if="word.pronunciation" class="wordlist-item-pinyin">
+            /{{ word.pronunciation }}/
+          </span>
+          <span v-if="word.definitions" class="wordlist-item-english">
+            {{ word.definitions.join(', ') }}
           </span>
         </a>
       </li>

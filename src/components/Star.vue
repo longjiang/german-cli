@@ -41,10 +41,12 @@ export default {
     async allForms() {
       let wordForms =
         (await (await this.$openGerman).wordForms(this.word)) || []
-      wordForms = wordForms
-        .map(form => form.form.replace(/'/g, '').toLowerCase())
-        .filter(form => form !== '' && form !== '0' && form !== '1')
-      return Helper.unique([this.word.bare.toLowerCase()].concat(wordForms))
+      wordForms = wordForms.filter(form => form !== '')
+      wordForms = Helper.unique(
+        [this.word.bare.toLowerCase()].concat(wordForms)
+      )
+      console.log(wordForms, 'star ... wordForms')
+      return wordForms
     },
     saved() {
       let saved = this.$store.getters.hasSavedWord(
@@ -52,11 +54,10 @@ export default {
       )
       return saved
     },
-    saveWordClick() {
-      this.$store.dispatch(
-        'addSavedWord',
-        this.word ? this.allForms() : [this.text.toLowerCase()]
-      )
+    async saveWordClick() {
+      let word = this.word ? await this.allForms() : [this.text.toLowerCase()]
+      console.log('before saving', word)
+      this.$store.dispatch('addSavedWord', word)
     },
     removeWordClick() {
       this.$store.dispatch(
