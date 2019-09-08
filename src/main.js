@@ -2,11 +2,11 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import '@/vendor/css-spinners/spinner/heartbeat.css'
 import '@/vendor/css-spinners/spinner/inner-circles.css'
-import '@/assets/css/russianzerotohero.css'
+import '@/assets/css/germanzerotohero.css'
 import Vue from 'vue'
 import VTooltip from 'v-tooltip'
 import BootstrapVue from 'bootstrap-vue'
-import RussianZeroToHero from './RussianZeroToHero'
+import GermanZeroToHero from './GermanZeroToHero'
 import Test from './Test'
 import Annotate from '@/components/Annotate'
 import WordList from '@/components/WordList'
@@ -14,7 +14,7 @@ import Loader from '@/components/Loader.vue'
 import Star from '@/components/Star'
 import Speak from '@/components/Speak'
 import ShowMoreButton from '@/components/ShowMoreButton'
-import OpenRussian from '@/lib/openrussian'
+import FreeDict from '@/lib/freedict'
 import VueObserveVisibility from 'vue-observe-visibility'
 
 Vue.config.productionTip = false
@@ -44,7 +44,7 @@ Vue.component('Speak', Speak)
 Vue.component('ShowMoreButton', ShowMoreButton)
 Vue.component('WordList', WordList)
 
-Vue.prototype.$openRussian = OpenRussian.load()
+Vue.prototype.$openGerman = FreeDict.load()
 
 // https://alligator.io/vuejs/vue-router-modify-head/
 // This callback runs before every route change, including on page load.
@@ -106,6 +106,6 @@ if (location.hash === '#/test') {
   new Vue({
     router,
     store,
-    render: h => h(RussianZeroToHero)
-  }).$mount('#russianzerotohero')
+    render: h => h(GermanZeroToHero)
+  }).$mount('#germanzerotohero')
 }

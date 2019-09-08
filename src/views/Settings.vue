@@ -18,7 +18,7 @@
               is a large collection of text written in a language, where we can
               extract collocations and example sentences.
               <a href="https://www.sketchengine.eu/">Sketch Engine</a>, our text
-              corpra provider, has a number of Russian text corpra to select
+              corpra provider, has a number of German text corpra to select
               from. Depending on the corpus you choose, the example sentences
               and collocations you see will be different.
             </p>

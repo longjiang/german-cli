@@ -51,7 +51,7 @@ export default {
   },
   async beforeMount() {
     if (this.word) {
-      let forms = (await (await this.$openRussian).wordForms(this.word)).map(
+      let forms = (await (await this.$openGerman).wordForms(this.word)).map(
         form => form.form.replace(/'/g, '')
       )
       this.forms = forms

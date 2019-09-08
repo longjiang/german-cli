@@ -108,7 +108,7 @@ export default {
             `.tooltip-entries .tooltip-entry:eq(${i}) span.tooltip-entry-character`
           )
           .wrap(
-            `<a href="#/dictionary/openrussian/${candidate.identifier}" class="tooltip-entry-character"></a>`
+            `<a href="#/dictionary/freedict/${candidate.identifier}" class="tooltip-entry-character"></a>`
           )
       }
       let newHTML = $newHtml.html()

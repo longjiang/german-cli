@@ -4,7 +4,7 @@
       <div class="col-sm-12">
         <h1 class="mb-5 text-center">Library</h1>
         <p class="text-center lead" style="margin-bottom: 5rem">
-          This is where you can enjoy reading a variety of Russian books with
+          This is where you can enjoy reading a variety of German books with
           the help of hover dictionary and the ability to save words.
         </p>
 

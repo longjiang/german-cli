@@ -26,23 +26,23 @@
           <SyncedTranscript
             ref="transcript"
             :onSeek="seekYouTube"
-            :lines="this.russian"
+            :lines="this.german"
             :parallellines="this.english"
             v-else-if="!loading && hasSubtitles"
           />
           <div v-else-if="!loading && !hasSubtitles" class="jumbotron pt-4 pb-3 bg-light">
-            <h6>Sorry, this YouTube video does not have Russian closed captions.</h6>
+            <h6>Sorry, this YouTube video does not have German closed captions.</h6>
             <p>
               You can tell if a YouTube video has closed captions by clicking on
               the
               <b>CC</b> icon in the player bar, and click on the
               <font-awesome-icon icon="cog" />next to it. If you can find the
               subtitle with the language
-              <b>Russian (Mainland, Taiwan, or Hong Kong)</b> then the video has
-              Russian subtitles.
+              <b>German (Mainland, Taiwan, or Hong Kong)</b> then the video has
+              German subtitles.
             </p>
             <p>
-              To look for videos with Russian subtitles, search with a Russian
+              To look for videos with German subtitles, search with a German
               keyword, and click
               <b>Filter</b>, then
               <b>CC</b>.
@@ -84,7 +84,7 @@ export default {
   },
   data() {
     return {
-      russian: [],
+      german: [],
       english: [],
       title: undefined,
       channel: undefined,
@@ -112,7 +112,7 @@ export default {
       )
     },
     async getTranscript() {
-      this.russian = []
+      this.german = []
       this.english = []
       this.hasSubtitles = false
       this.loading = true
@@ -129,14 +129,14 @@ export default {
                   line: $(p).text(),
                   starttime: parseInt($(p).attr('t')) / 1000
                 }
-                this.russian.push(line)
+                this.german.push(line)
               }
             }
           )
         )
       }
       await Promise.all(promises)
-      if (this.russian.length > 0) {
+      if (this.german.length > 0) {
         await Helper.scrape(
           `https://www.youtube.com/api/timedtext?v=${this.args}&lang=${chosenLanguage}&fmt=srv3&tlang=en`,
           $html => {

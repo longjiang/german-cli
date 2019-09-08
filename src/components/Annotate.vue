@@ -49,7 +49,7 @@ export default {
       let sentences = text.split('SENTENCEENDING!!!')
       return sentences.filter(sentence => sentence.trim() !== '')
     },
-    markRussianWords(text) {
+    markGermanWords(text) {
       let html = text
         .replace(/́/g, '')
         .replace(/([\wа-яё]+)/gi, '<WordBlock>$1</WordBlock>')
@@ -62,7 +62,7 @@ export default {
         let sentences = this.breakSentences(node.nodeValue)
         for (let sentence of sentences) {
           let sentenceSpan = $(
-            `<span class="sentence">${this.markRussianWords(sentence)}</span>`
+            `<span class="sentence">${this.markGermanWords(sentence)}</span>`
           )
           $(node).before(sentenceSpan)
         }

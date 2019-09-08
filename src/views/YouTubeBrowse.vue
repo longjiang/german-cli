@@ -5,7 +5,7 @@
         <h1 class="mb-5 text-center">Study YouTube Subtitles</h1>
         <h4 class="mt-5 mb-5 text-center">Search YouTube</h4>
         <SimpleSearch
-          placeholder="Enter a search term in Russian..."
+          placeholder="Enter a search term in German..."
           :action="
             url => {
               location.hash = '#/youtube/search/' + encodeURIComponent(url)
@@ -25,14 +25,14 @@
 
         <h4 class="mt-5 mb-5">
           Study
-          <em>any</em> YouTube video that has Russian closed captions
+          <em>any</em> YouTube video that has German closed captions
         </h4>
 
         <div class="jumbotron bg-light pt-4 pb-3 mt-3 mb-3">
           <YouTubeNav class="mb-4" />
           <ol>
             <li>
-              Go to YouTube, search a Russian word. For example
+              Go to YouTube, search a German word. For example
               <b>纪录片</b>.
             </li>
             <li>
@@ -43,7 +43,7 @@
             <li>
               Open a video that interests you. <br /><small
                 ><b>Note:</b> Many have closed captions, but they are in
-                <em>English.</em> You need to look for <em>Russian</em> closed
+                <em>English.</em> You need to look for <em>German</em> closed
                 captions. These are hard to find. If you cannot find any, look
                 in the suggested channels listed on this page.</small
               >
@@ -85,7 +85,7 @@ export default {
           id: 'UC4avx8a88gPKzkitH0zTO4w',
           title: 'TRY MORE',
           description:
-            'A channel with lots of videos with Russian and English subtitles.',
+            'A channel with lots of videos with German and English subtitles.',
           avatar:
             'https://yt3.ggpht.com/a/AGF-l78DSGaofeLyN2aTHkcmcMYZFSZQjyjZwUNdRA=s288-c-k-c0xffffffff-no-rj-mo'
         },

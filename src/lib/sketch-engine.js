@@ -5,82 +5,82 @@ import SketchEngine from './sketch-engine'
 export default {
   corpra: [
     {
-      language: 'Russian',
-      name: 'Russian Web 2011 (ruTenTen11)',
+      language: 'German',
+      name: 'German Web 2011 (ruTenTen11)',
       words: 14553856113,
       code: 'rutenten11_8',
       note: 'Featured.'
     },
     {
-      language: 'Russian',
+      language: 'German',
       name:
-        'Araneum Russicum Russicum Maius (Russia-only Russian, 15.03) 1,20 G',
+        'Araneum Russicum Russicum Maius (Russia-only German, 15.03) 1,20 G',
       words: 859319823,
       code: 'ru_araneum_maius_ru',
       note: 'Web.'
     },
     {
-      language: 'Russian',
-      name: 'CHILDES Russian Corpus',
+      language: 'German',
+      name: 'CHILDES German Corpus',
       words: 48791,
       code: 'childes_rus',
       note: 'Spoken.'
     },
     {
-      language: 'Russian',
-      name: 'OPUS2 Russian',
+      language: 'German',
+      name: 'OPUS2 German',
       words: 307709872,
       code: 'opus2_ru',
       note: 'Parallel. That means <b>English translation</b> is available.'
     },
     {
-      language: 'Russian',
+      language: 'German',
       name: 'ruSkELL 1.6',
       words: 975584449,
       code: 'ruskell_1_6',
       note: 'Web.'
     },
     {
-      language: 'Russian',
-      name: 'Russian Web 2011 sample (ruTenTen11)',
+      language: 'German',
+      name: 'German Web 2011 sample (ruTenTen11)',
       words: 998099963,
       code: 'rutenten11_8_1G',
       note: 'Web.'
     },
     {
-      language: 'Russian',
-      name: 'Russian web corpus (v2 with lempos)',
+      language: 'German',
+      name: 'German web corpus (v2 with lempos)',
       words: 147930261,
-      code: 'russian_2',
+      code: 'german_2',
       note: 'Web.'
     },
     {
-      language: 'Russian',
-      name: 'Timestamped JSI web corpus 2014-2016 Russian',
+      language: 'German',
+      name: 'Timestamped JSI web corpus 2014-2016 German',
       words: 1120731416,
       code: 'rus_jsi_newsfeed_1',
       note:
         'Diachronic. That means time information is available and you can observe how the language changed over time.'
     },
     {
-      language: 'Russian',
-      name: 'Timestamped JSI web corpus 2014-2019 Russian',
+      language: 'German',
+      name: 'Timestamped JSI web corpus 2014-2019 German',
       words: 3196159370,
       code: 'rus_jsi_newsfeed_virt',
       note:
         'Diachronic. That means time information is available and you can observe how the language changed over time.'
     },
     {
-      language: 'Russian',
-      name: 'Timestamped JSI web corpus 2019-07 Russian',
+      language: 'German',
+      name: 'Timestamped JSI web corpus 2019-07 German',
       words: 98581681,
       code: 'rus_jsi_newsfeed_lastmonth',
       note:
         'Diachronic. That means time information is available and you can observe how the language changed over time.'
     },
     {
-      language: 'Russian',
-      name: 'Timestamped JSI web corpus 2019-08 Russian',
+      language: 'German',
+      name: 'Timestamped JSI web corpus 2019-08 German',
       words: 31695132,
       code: 'rus_jsi_newsfeed_curmonth',
       note:
@@ -88,7 +88,7 @@ export default {
     }
   ],
   corpname() {
-    return localStorage.getItem('rzhCorpname') || 'rutenten11_8'
+    return localStorage.getItem('gzhCorpname') || 'rutenten11_8'
   },
   collocationDescription(word) {
     return {
@@ -161,7 +161,7 @@ export default {
             line = line.replace(/ ([,.])/g, '$1')
             if (line.length > term.length + 4) {
               let parallelLine = {
-                russian: line
+                german: line
               }
               if (Line.Align && Line.Align[0].Kwic) {
                 parallelLine.english = Line.Align[0].Kwic.map(
@@ -172,7 +172,7 @@ export default {
             }
           }
           result = result.sort(function(a, b) {
-            return a.russian.length - b.russian.length
+            return a.german.length - b.german.length
           })
           callback(Helper.unique(result))
         } catch (err) {

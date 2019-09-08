@@ -23,26 +23,12 @@
         tab: true,
         'router-link-active':
           $route.name &&
-          ($route.name === 'noun-cases' ||
-            $route.name === 'endings' ||
-            $route.name === 'analyzer')
-      }"
-      :to="{ name: 'noun-cases' }"
-      title="Russian grammar tools"
-    >
-      <font-awesome-icon icon="list" />Grammar
-    </router-link>
-    <router-link
-      :class="{
-        tab: true,
-        'router-link-active':
-          $route.name &&
           ($route.name.startsWith('book') ||
             $route.name === 'library' ||
             $route.name === 'reader')
       }"
       :to="{ name: 'library' }"
-      title="Improve your Russian through reading"
+      title="Improve your German through reading"
     >
       <font-awesome-icon icon="book-open" />Reading
     </router-link>
@@ -52,7 +38,7 @@
         'router-link-active': $route.name && $route.name.startsWith('youtube')
       }"
       :to="{ name: 'youtube-browse' }"
-      title="Learn Russian with audio-visual material."
+      title="Learn German with audio-visual material."
     >
       <font-awesome-icon icon="video" />Audio-Visual
     </router-link>

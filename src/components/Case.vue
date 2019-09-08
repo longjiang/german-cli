@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     speak(sentence) {
-      speakRussian(sentence)
+      speakGerman(sentence)
     }
   },
   mounted() {

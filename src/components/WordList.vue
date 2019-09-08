@@ -12,11 +12,11 @@
         <Star v-if="word && star === true" :word="word" class="mr-1"></Star>
         <a
           v-if="compareWith"
-          :href="`#/compare/openrussian/${compareWith.id},${word.id}`"
+          :href="`#/compare/freedict/${compareWith.id},${word.id}`"
           class="btn btn-small mr-2"
           >Compare</a
         >
-        <a v-if="word" :href="`#/dictionary/openrussian/${word.id}`">
+        <a v-if="word" :href="`#/dictionary/freedict/${word.id}`">
           <span
             class="wordlist-item-word ml-1"
             :data-level="word.level || 'outside'"

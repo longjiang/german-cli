@@ -15,7 +15,7 @@
         <tr
           v-for="corpus in SketchEngine.corpra.filter(
             corpus =>
-              corpus.language === 'Russian'
+              corpus.language === 'German'
           )"
         >
           <td>
@@ -52,7 +52,7 @@ export default {
   },
   watch: {
     corpname() {
-      localStorage.setItem('rzhCorpname', this.corpname)
+      localStorage.setItem('gzhCorpname', this.corpname)
       location.reload() // Otherwise users won't see the new collocations and example sentences, leaving them confused.
     }
   }

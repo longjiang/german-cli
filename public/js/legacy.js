@@ -308,7 +308,7 @@ function formatExampleSentenceHtml(types, data) {
   return data
 }
 
-function speakRussian(text) {
+function speakGerman(text) {
   var utterance = new SpeechSynthesisUtterance(text)
   utterance.lang = 'ru'
   speechSynthesis.speak(utterance)
@@ -326,7 +326,7 @@ function addBlankEventHandlers() {
     var answer = $(this)
       .find('.answer')
       .text()
-    speakRussian(answer)
+    speakGerman(answer)
   })
 }
 

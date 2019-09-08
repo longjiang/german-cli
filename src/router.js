@@ -19,11 +19,11 @@ export default new Router({
       props: true,
       component: () => import('./views/Dictionary.vue'),
       meta: {
-        title: 'Dictionary | Russian Zero to Hero',
+        title: 'Dictionary | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
-            content: 'Look up and learn Russian words.'
+            content: 'Look up and learn German words.'
           }
         ]
       }
@@ -34,11 +34,11 @@ export default new Router({
       component: () => import('./views/Phrase.vue'),
       props: true,
       meta: {
-        title: 'Phrase | Russian Zero to Hero',
+        title: 'Phrase | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
-            content: 'See how Russian phrases are used in real context..'
+            content: 'See how German phrases are used in real context..'
           }
         ]
       }
@@ -48,56 +48,11 @@ export default new Router({
       name: 'saved-words',
       component: () => import('./views/SavedWords.vue'),
       meta: {
-        title: 'Saved Words | Russian Zero to Hero',
+        title: 'Saved Words | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
             content: 'Study, manage, import, export the words you saved.'
-          }
-        ]
-      }
-    },
-    {
-      path: '/cases/nouns/:args?',
-      name: 'noun-cases',
-      props: true,
-      component: () => import('./views/NounCases.vue'),
-      meta: {
-        title: 'Learn Russian Noun Cases | Russian Zero to Hero',
-        metaTags: [
-          {
-            name: 'description',
-            content: 'Learn how to decline Russian nouns.'
-          }
-        ]
-      }
-    },
-    {
-      path: '/endings',
-      name: 'endings',
-      props: true,
-      component: () => import('./views/Endings.vue'),
-      meta: {
-        title: 'Lookup Case Endings | Russian Zero to Hero',
-        metaTags: [
-          {
-            name: 'description',
-            content: 'Figure out the dictionary form and case by looking up the ending.'
-          }
-        ]
-      }
-    },
-    {
-      path: '/analyzer',
-      name: 'analyzer',
-      props: true,
-      component: () => import('./views/Analyzer.vue'),
-      meta: {
-        title: 'Analyze Cases in Russian Text | Russian Zero to Hero',
-        metaTags: [
-          {
-            name: 'description',
-            content: 'Take a piece of russian text and figure out the case of each adjective + noun combo.'
           }
         ]
       }
@@ -108,12 +63,12 @@ export default new Router({
       component: () => import('./views/Library.vue'),
       props: true,
       meta: {
-        title: 'Library | Russian Zero to Hero',
+        title: 'Library | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
             content:
-              'Read free, open Russian books with hover dictionary and save new words for review.'
+              'Read free, open German books with hover dictionary and save new words for review.'
           }
         ]
       }
@@ -123,12 +78,12 @@ export default new Router({
       name: 'reader',
       component: () => import('./views/Reader.vue'),
       meta: {
-        title: 'Reader | Russian Zero to Hero',
+        title: 'Reader | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
             content:
-              'Read Russian text with annotation and save new words for review.'
+              'Read German text with annotation and save new words for review.'
           }
         ]
       }
@@ -139,12 +94,12 @@ export default new Router({
       component: () => import('./views/BookChapter.vue'),
       props: true,
       meta: {
-        title: 'Book Chapter | Russian Zero to Hero',
+        title: 'Book Chapter | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
             content:
-              'Read free, open Russian books with hover dictionary and save new words for review.'
+              'Read free, open German books with hover dictionary and save new words for review.'
           }
         ]
       }
@@ -155,12 +110,12 @@ export default new Router({
       component: () => import('./views/BookIndex.vue'),
       props: true,
       meta: {
-        title: 'Book | Russian Zero to Hero',
+        title: 'Book | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
             content:
-              'Read free, open Russian books with hover dictionary and save new words for review.'
+              'Read free, open German books with hover dictionary and save new words for review.'
           }
         ]
       }
@@ -171,12 +126,12 @@ export default new Router({
       component: () => import('./views/BookList.vue'),
       props: true,
       meta: {
-        title: 'Books | Russian Zero to Hero',
+        title: 'Books | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
             content:
-              'Read free, open Russian books with hover dictionary and save new words for review.'
+              'Read free, open German books with hover dictionary and save new words for review.'
           }
         ]
       }
@@ -187,11 +142,11 @@ export default new Router({
       component: () => import('./views/YouTubeSearch.vue'),
       props: true,
       meta: {
-        title: 'YouTube Reader | Russian Zero to Hero',
+        title: 'YouTube Reader | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
-            content: 'Watch Russian YouTube videos and study the subtitles.'
+            content: 'Watch German YouTube videos and study the subtitles.'
           }
         ]
       }
@@ -202,11 +157,11 @@ export default new Router({
       component: () => import('./views/YouTubeView.vue'),
       props: true,
       meta: {
-        title: 'YouTube Reader | Russian Zero to Hero',
+        title: 'YouTube Reader | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
-            content: 'Watch Russian YouTube videos and study the subtitles.'
+            content: 'Watch German YouTube videos and study the subtitles.'
           }
         ]
       }
@@ -217,11 +172,11 @@ export default new Router({
       component: () => import('./views/YouTubeBrowse.vue'),
       props: true,
       meta: {
-        title: 'Study YouTube Subtitles | Russian Zero to Hero',
+        title: 'Study YouTube Subtitles | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
-            content: 'Watch Russian YouTube videos and study the subtitles.'
+            content: 'Watch German YouTube videos and study the subtitles.'
           }
         ]
       }
@@ -232,11 +187,11 @@ export default new Router({
       component: () => import('./views/YouTubeChannel.vue'),
       props: true,
       meta: {
-        title: 'Study YouTube Subtitles | Russian Zero to Hero',
+        title: 'Study YouTube Subtitles | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
-            content: 'Watch Russian YouTube videos and study the subtitles.'
+            content: 'Watch German YouTube videos and study the subtitles.'
           }
         ]
       }
@@ -247,11 +202,11 @@ export default new Router({
       component: () => import('./views/YouTubePlaylist.vue'),
       props: true,
       meta: {
-        title: 'Study YouTube Subtitles | Russian Zero to Hero',
+        title: 'Study YouTube Subtitles | German Zero to Hero',
         metaTags: [
           {
             name: 'description',
-            content: 'Watch Russian YouTube videos and study the subtitles.'
+            content: 'Watch German YouTube videos and study the subtitles.'
           }
         ]
       }
@@ -261,7 +216,7 @@ export default new Router({
       name: 'settings',
       component: () => import('./views/Settings.vue'),
       meta: {
-        title: 'Settings | Russian Zero to Hero',
+        title: 'Settings | German Zero to Hero',
         metaTags: [
           {
             name: 'description',

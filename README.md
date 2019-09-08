@@ -1,4 +1,4 @@
-# russianzerotohero
+# germanzerotohero
 
 ## Project setup
 ```

@@ -84,9 +84,9 @@ export default {
       showExport: false,
       savedWords: [],
       savedTexts: [],
-      selectedCsvOptions: ['russian', 'english'],
+      selectedCsvOptions: ['german', 'english'],
       csvOptions: [
-        { text: 'Russian', value: 'russian' },
+        { text: 'German', value: 'german' },
         { text: 'English', value: 'english' }
       ]
     }
@@ -110,7 +110,7 @@ export default {
       this.savedWords = []
       this.savedTexts = []
       for (let wordForms of this.$store.state.savedWords) {
-        let word = await (await this.$openRussian).lookup(wordForms[0])
+        let word = await (await this.$openGerman).lookup(wordForms[0])
         if (word) {
           this.savedWords.push(word)
         } else {
@@ -125,7 +125,7 @@ export default {
 
       let csv = ''
       for (let word of this.savedWords) {
-        if (this.selectedCsvOptions.includes('russian')) {
+        if (this.selectedCsvOptions.includes('german')) {
           let a = word.accented
           csv += `${a}\t`
         }

@@ -13,7 +13,7 @@
               <span
                 v-html="
                   Helper.highlightMultiple(
-                    example.russian,
+                    example.german,
                     words,
                     level || 'outside'
                   )
@@ -107,7 +107,7 @@ export default {
   },
   methods: {
     async update() {
-      let forms = (await (await this.$openRussian).wordForms(this.word)).map(
+      let forms = (await (await this.$openGerman).wordForms(this.word)).map(
         form => form.form.replace(/'/g, '')
       )
       this.words = [this.word.bare].concat(forms)

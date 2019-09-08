@@ -47,7 +47,7 @@
             {{ match.table !== 'declension' ? match.table : '' }}
             of
           </div>
-          <a :href="`#/dictionary/openrussian/${words[0].id}`"
+          <a :href="`#/dictionary/freedict/${words[0].id}`"
             ><b
               :data-level="word.level || 'outside'"
               style="font-size: 1.5rem"
@@ -90,14 +90,14 @@
           >Wiktionary</a
         >
         |
-        <a :href="`https://en.openrussian.org/ru/${text}`" target="_blank"
-          >OpenRussian.org</a
+        <a :href="`https://en.freedict.org/ru/${text}`" target="_blank"
+          >FreeDict.org</a
         >
         |
         <a
-          :href="`https://www.russiandict.net/translate/${text}`"
+          :href="`https://www.germandict.net/translate/${text}`"
           target="_blank"
-          >RussianDict</a
+          >GermanDict</a
         >
       </div>
     </template>
@@ -159,7 +159,7 @@ export default {
       if (this.words.length > 0) {
         for (let word of this.words) {
           let wordForms =
-            (await (await this.$openRussian).wordForms(word)) || []
+            (await (await this.$openGerman).wordForms(word)) || []
           wordForms = wordForms
             .map(form => form.form.replace(/'/g, '').toLowerCase())
             .filter(form => form !== '' && form !== '0' && form !== '1')
@@ -181,17 +181,17 @@ export default {
       return false
     },
     async lookup() {
-      let words = await (await this.$openRussian).lookupFuzzy(this.text)
+      let words = await (await this.$openGerman).lookupFuzzy(this.text)
       if (words) {
         for (let word of words) {
           if (word && word.matches) {
             for (let match of word.matches) {
-              match.form = await (await this.$openRussian).accent(match.form)
-              match.field = await (await this.$openRussian).stylize(match.field)
-              match.number = await (await this.$openRussian).stylize(
+              match.form = await (await this.$openGerman).accent(match.form)
+              match.field = await (await this.$openGerman).stylize(match.field)
+              match.number = await (await this.$openGerman).stylize(
                 match.number
               )
-              match.table = await (await this.$openRussian).stylize(match.table)
+              match.table = await (await this.$openGerman).stylize(match.table)
             }
           }
         }

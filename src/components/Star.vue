@@ -40,7 +40,7 @@ export default {
   methods: {
     async allForms() {
       let wordForms =
-        (await (await this.$openRussian).wordForms(this.word)) || []
+        (await (await this.$openGerman).wordForms(this.word)) || []
       wordForms = wordForms
         .map(form => form.form.replace(/'/g, '').toLowerCase())
         .filter(form => form !== '' && form !== '0' && form !== '1')

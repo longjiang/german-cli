@@ -5,7 +5,7 @@
         <div class="col-sm-12">
           <h4>Reader</h4>
           <p>
-            Write or paste in some Russian text, and annotated text will show up
+            Write or paste in some German text, and annotated text will show up
             below the textbox. You can also use
             <b>Markdown or HTML tags</b>. Everything is autosaved to your
             browser’s <code>localStorage</code>, so even if you refresh your
@@ -17,7 +17,7 @@
               class="form-control"
               cols="30"
               rows="5"
-              placeholder="Enter your Russian text here. Markdown and HTML also supported."
+              placeholder="Enter your German text here. Markdown and HTML also supported."
               v-model="text"
             ></textarea>
           </div>
@@ -48,11 +48,11 @@
           <p>Try these resources:</p>
           <ul>
             <li>
-              Look for Russian music lyrics on 
+              Look for German music lyrics on 
               <a href="http://www.megalyrics.ru/lyric/kino/gruppa-krovi.htm">Megalyrics</a>.
             </li>
             <li>
-              Read books from various Russian sources directly in our
+              Read books from various German sources directly in our
               <a href="#/library">Library</a>.
             </li>
           </ul>
@@ -80,10 +80,10 @@ import Marked from 'marked'
 
 const Reader = {
   get() {
-    return localStorage.getItem('rzhReaderText')
+    return localStorage.getItem('gzhReaderText')
   },
   save(text) {
-    localStorage.setItem('rzhReaderText', text)
+    localStorage.setItem('gzhReaderText', text)
   }
 }
 

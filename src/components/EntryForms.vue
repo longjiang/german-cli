@@ -85,11 +85,11 @@ export default {
           return groups
         }, {})
       }
-      let forms = await (await this.$openRussian).wordForms(this.word)
+      let forms = await (await this.$openGerman).wordForms(this.word)
       for (let form of forms) {
-        form.form = await (await this.$openRussian).accent(form.form)
-        form.field = await (await this.$openRussian).stylize(form.field)
-        form.table = await (await this.$openRussian).stylize(form.table)
+        form.form = await (await this.$openGerman).accent(form.form)
+        form.field = await (await this.$openGerman).stylize(form.field)
+        form.table = await (await this.$openGerman).stylize(form.table)
       }
       this.tables = forms.groupBy('table')
       console.log(this.tables)

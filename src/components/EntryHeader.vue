@@ -4,11 +4,14 @@
     <div>
       <div class="entry-word-wrapper" style="display:inline-block">
         <div class="mb-2">
-          <Star :word="entry"></Star>
-          <Speak class="ml-1" :text="entry.bare" :mp3="entry.audio" />
+          <div class="entry-pinyin">
+            <Star :word="entry"></Star>
+            /{{ entry.pronunciation }}/
+            <Speak class="ml-1" :text="entry.bare" :mp3="entry.audio" />
+          </div>
         </div>
         <div>
-          <a :href="`#/dictionary/openrussian/${entry.bare}`">
+          <a :href="`#/dictionary/opengerman/${entry.bare}`">
             <span
               class="entry-word"
               :data-level="entry.level || 'outside'"

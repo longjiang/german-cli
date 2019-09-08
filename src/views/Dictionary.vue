@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="text-center">
-              <h2 class="mb-4">For the love of Russian words.</h2>
+              <h2 class="mb-4">For the love of German words.</h2>
               <Loader ref="loader" class="mb-5" />
             </div>
             <SearchCompare
@@ -28,7 +28,7 @@
           :findCurrent="item => item.join(',').replace(/ /g, '_') === entry.id"
           :url="
             item =>
-              `#/dictionary/openrussian/${item.join(',').replace(/ /g, '_')}`
+              `#/dictionary/freedict/${item.join(',').replace(/ /g, '_')}`
           "
           title="Saved Words"
         />
@@ -142,15 +142,15 @@ export default {
     },
     show(entry) {
       this.entry = entry
-      document.title = `${entry.bare} (${entry.english}) | Russian Zero to Hero`
+      document.title = `${entry.bare} (${entry.english}) | German Zero to Hero`
     },
     async route() {
       if (this.method && this.args) {
-        if (this.method === 'openrussian') {
+        if (this.method === 'freedict') {
           if (this.args === 'random') {
             this.random()
           } else {
-            this.entry = await (await this.$openRussian).get(this.args)
+            this.entry = await (await this.$openGerman).lookup(this.args)
           }
         } else {
           if (!this.entry) {
@@ -160,8 +160,8 @@ export default {
       }
     },
     async random() {
-      let randomId = (await (await this.$openRussian).random()).id
-      location.hash = `#/dictionary/openrussian/${randomId}`
+      let randomId = (await (await this.$openGerman).random()).id
+      location.hash = `#/dictionary/freedict/${randomId}`
     }
   },
   watch: {

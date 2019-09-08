@@ -43,7 +43,7 @@ export default {
     }
   },
   async mounted() {
-    await this.$openRussian
+    await this.$openGerman
     this.loading = false
   },
   methods: {

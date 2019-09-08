@@ -13,7 +13,7 @@
       <a
         v-if="random"
         class="btn btn-secondary btn-random ml-2"
-        href="#/dictionary/openrussian/random"
+        href="#/dictionary/freedict/random"
       >
         <font-awesome-icon icon="random" />
         <span> Random</span>
@@ -62,7 +62,7 @@
       >
         <span class="suggestion-not-found">
           <b>&ldquo;{{ text }}&rdquo;</b> is not in
-          <a href="https://en.openrussian.org/dictionary">OpenRussian.org</a>.
+          <a href="https://en.freedict.org/dictionary">FreeDict.org</a>.
           Try looking it up in
           <a
             :href="`https://en.wiktionary.org/w/index.php?search=${text}`"
@@ -110,7 +110,7 @@ export default {
       type: Function,
       default: function(entry) {
         if (entry) {
-          return `#/dictionary/openrussian/${entry.id}`
+          return `#/dictionary/freedict/${entry.id}`
         }
       }
     },
@@ -147,7 +147,7 @@ export default {
     },
     async text() {
       if (this.type === 'dictionary') {
-        this.suggestions = await (await this.$openRussian).lookupFuzzy(this.text, 30)
+        this.suggestions = await (await this.$openGerman).lookupFuzzy(this.text, 30)
       }
     }
   },
