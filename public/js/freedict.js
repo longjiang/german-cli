@@ -32,13 +32,14 @@ const FreeDict = {
         let matches = german.match(/(.*) \/(.*)\//)
         let matches2 = german.match(/<(.*)>/)
         let word = {
+          id: index / 2 + 1,
           bare: matches ? matches[1] : undefined,
           pronunciation: matches ? matches[1] : undefined,
           definitions: lines[index + 1],
           pos: matches2 && matches2.length > 1 ? matches2[1] : undefined
         }
         word.accented = word.bare
-        words.push(word)
+        words[word.id] = word
       }
     }
     return words
@@ -73,8 +74,10 @@ const FreeDict = {
       resolve(this)
     })
   },
+  get(id) {
+    return this.words[id]
+  },
   lookup(text) {
-    console.log('looking up', text)
     let word = this.words.find(word => word && word.bare === text)
     return word
   },
@@ -161,8 +164,10 @@ const FreeDict = {
     this.cache[text] = foundWords
     return foundWords
   },
-  lookupFuzzy(text) {
-    return this.lookup(text)
+  lookupFuzzy(text, limit = 30) {
+    return this.words
+      .filter(word => word.bare && word.bare.includes(text))
+      .slice(0, limit)
   },
   randomArrayItem(array, start = 0, length = false) {
     length = length || array.length

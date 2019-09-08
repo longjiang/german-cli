@@ -44,7 +44,7 @@
           <span
             class="suggestion-word font-weight-bold mr-1"
             data-level="outside"
-            >{{ text }}</span
+            >{{ suggestion.bare }}</span
           >
           <span class="mr-1" v-if="suggestion.match"
             >{{ suggestion.match.field }} of <b>{{ suggestion.bare }}</b></span

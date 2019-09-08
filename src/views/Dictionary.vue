@@ -150,7 +150,7 @@ export default {
           if (this.args === 'random') {
             this.random()
           } else {
-            this.entry = await (await this.$openGerman).lookup(this.args)
+            this.entry = await (await this.$openGerman).get(this.args)
           }
         } else {
           if (!this.entry) {
