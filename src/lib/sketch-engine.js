@@ -6,113 +6,157 @@ export default {
   corpra: [
     {
       language: 'German',
-      name: 'German Web 2011 (ruTenTen11)',
-      words: 14553856113,
-      code: 'rutenten11_8',
+      name: 'German Web 2013 (deTenTen13)',
+      words: 16526335416,
+      code: 'detenten13_rft3',
       note: 'Featured.'
     },
     {
       language: 'German',
-      name:
-        'Araneum Russicum Russicum Maius (Russia-only German, 15.03) 1,20 G',
-      words: 859319823,
-      code: 'ru_araneum_maius_ru',
-      note: 'Web.'
+      name: 'Araneum Germanicum Maius [2013]',
+      words: 875465845,
+      code: 'de_araneum_maius',
+      note: ''
     },
     {
       language: 'German',
       name: 'CHILDES German Corpus',
-      words: 48791,
-      code: 'childes_rus',
+      words: 5941266,
+      code: 'childes_deu',
       note: 'Spoken.'
     },
     {
       language: 'German',
+      name: 'DGT, German',
+      words: 45380666,
+      code: 'dgt__german',
+      note: 'Parallel. That means English translation is available.'
+    },
+    {
+      language: 'German',
+      name: 'EUR-Lex German 2/2016',
+      words: 528617843,
+      code: 'eurlex_deu_1',
+      note: 'Parallel. That means English translation is available.'
+    },
+    {
+      language: 'German',
+      name: 'EUR-Lex judgments German 12/2016',
+      words: 35297517,
+      code: 'judgments_eurlex_deu',
+      note: 'Parallel. That means English translation is available.'
+    },
+    {
+      language: 'German',
+      name: 'EUROPARL7, German',
+      words: 47805055,
+      code: 'europarl7_de_1',
+      note: 'Parallel. That means English translation is available.'
+    },
+    {
+      language: 'German',
+      name: 'German Corpus for SkELL 1.0',
+      words: 769810745,
+      code: 'deskell_1_0',
+      note: 'Web.'
+    },
+    {
+      language: 'German',
+      name: 'German Web (deWaC)',
+      words: 1348188416,
+      code: 'dewac',
+      note: 'Web.'
+    },
+    {
+      language: 'German',
+      name: 'German Web 2010',
+      words: 2338036362,
+      code: 'detenten2',
+      note: 'Web.'
+    },
+    {
+      language: 'German',
+      name: 'German Web 2013 sample',
+      words: 193838751,
+      code: 'detenten13_rft3_term_ref',
+      note: 'Web.'
+    },
+    {
+      language: 'German',
+      name: 'GerManC (German Newspapers 1650-1800)',
+      words: 667310,
+      code: 'germanc',
+      note: 'Non-Web.'
+    },
+    {
+      language: 'German',
       name: 'OPUS2 German',
-      words: 307709872,
-      code: 'opus2_ru',
-      note: 'Parallel. That means <b>English translation</b> is available.'
+      words: 125229773,
+      code: 'opus2_de',
+      note: 'Parallel. That means English translation is available.'
     },
     {
       language: 'German',
-      name: 'ruSkELL 1.6',
-      words: 975584449,
-      code: 'ruskell_1_6',
-      note: 'Web.'
-    },
-    {
-      language: 'German',
-      name: 'German Web 2011 sample (ruTenTen11)',
-      words: 998099963,
-      code: 'rutenten11_8_1G',
-      note: 'Web.'
-    },
-    {
-      language: 'German',
-      name: 'German web corpus (v2 with lempos)',
-      words: 147930261,
-      code: 'german_2',
+      name: 'Parsed German Web (sDeWaC)',
+      words: 755165551,
+      code: 'sdewac2',
       note: 'Web.'
     },
     {
       language: 'German',
       name: 'Timestamped JSI web corpus 2014-2016 German',
-      words: 1120731416,
-      code: 'rus_jsi_newsfeed_1',
+      words: 1987759563,
+      code: 'deu_jsi_newsfeed_1',
       note:
-        'Diachronic. That means time information is available and you can observe how the language changed over time.'
+        'Diachronic. That means time information is available that allows you to see how the language changed over time.'
     },
     {
       language: 'German',
       name: 'Timestamped JSI web corpus 2014-2019 German',
-      words: 3196159370,
-      code: 'rus_jsi_newsfeed_virt',
+      words: 4617996199,
+      code: 'deu_jsi_newsfeed_virt',
       note:
-        'Diachronic. That means time information is available and you can observe how the language changed over time.'
+        'Diachronic. That means time information is available that allows you to see how the language changed over time.'
     },
     {
       language: 'German',
       name: 'Timestamped JSI web corpus 2019-07 German',
-      words: 98581681,
-      code: 'rus_jsi_newsfeed_lastmonth',
+      words: 103194896,
+      code: 'deu_jsi_newsfeed_lastmonth',
       note:
-        'Diachronic. That means time information is available and you can observe how the language changed over time.'
+        'Diachronic. That means time information is available that allows you to see how the language changed over time.'
     },
     {
       language: 'German',
       name: 'Timestamped JSI web corpus 2019-08 German',
-      words: 31695132,
-      code: 'rus_jsi_newsfeed_curmonth',
+      words: 34236368,
+      code: 'deu_jsi_newsfeed_curmonth',
       note:
-        'Diachronic. That means time information is available and you can observe how the language changed over time.'
+        'Diachronic. That means time information is available that allows you to see how the language changed over time.'
     }
   ],
   corpname() {
-    return localStorage.getItem('gzhCorpname') || 'rutenten11_8'
+    return localStorage.getItem('gzhCorpname') || 'detenten13_rft3'
   },
   collocationDescription(word) {
     return {
-      object4_of: `Verb + ${word} (direct)`,
-      pp_в: `${word} в ...`,
-      object2_of: `Verb + ${word} (pl.)`,
-      pp_из: `${word} из ...`,
-      pp_obj_по: `... по ${word}`,
-      pp_по: `${word} по ...`,
-      pp_obj_к: `... к ${word}`,
-      pp_obj_от: `... от ${word}`,
-      pp_obj_за: `... за ${word}`,
-      pp_к: `${word} (pl.) к ...`,
-      pp_за: `${word} за ...`,
-      passive: `${word} (in the passive)`,
-      object3_of: `Verb + ${word} (indirect)`,
-      pp_под: `${word} под ...`,
-      pp_во: `${word} во ...`,
-      pp_у: `${word} у ...`,
-      pp_со: `${word} со ...`,
-      быть_adj: `${word} быть + adj.`,
-      pp_obj_про: `... про ${word}`,
-      pp_возле: `${word} возле ...`,
-      adv_modifies: `${word} ...`
+      'modifiers of "%w"': `Modifiers of “${word}”`,
+      'nouns modified by "%w"': `Nouns modified by “${word}”`,
+      'genitive objects of "%w"': `Genitive objects of “${word}”`,
+      'subjects of "%w"': `Subjects of “${word}”`,
+      'nouns with "%w" as genitive object': `Nouns with “${word}” as genitive object`,
+      'nouns with "%w" as dative object': `Nouns with “${word}” as dative object`,
+      'dative objects of "%w"': `Dative objects of “${word}”`,
+      'accusative objects of "%w"': `Accusative objects of “${word}”`,
+      'nouns with "%w" as accusative object': `Nouns with "%w" “${word}” as accusative object`,
+      'verbs with "%w" as accusative object': `Verbs with “${word}”  as accusative object`,
+      '"%w" and/or ...': `“${word}” and/or ...`,
+      'noun + in "%w"': `Noun + in “${word}”`,
+      'prepositions of "%w"': `prepositions of “${word}”`,
+      'modal verbs with "%w"': `Modal verbs with “${word}”`,
+      'prepositional objects in dative': `Prepositional objects in dative`,
+      'prepositional objects in accusative': `Prepositional objects in accusative`,
+      'prepositional objects in genitive': `Prepositional objects in genitive`
     }
   },
   wsketch(term, callback) {
@@ -127,7 +171,9 @@ export default {
               return Word.cm !== ''
             })
             for (let Word of Gramrel.Words) {
-              Word.cm = Word.cm.replace(/-\w( ?)/gi, '')
+              if (Word.cm) {
+                Word.cm = Word.cm.replace(/-\w( ?)/gi, '')
+              }
             }
           })
         }
@@ -207,9 +253,7 @@ export default {
   },
   mistakes(term, callback) {
     $.post(
-      `${
-        Config.sketchEngineProxy
-      }?https://app.sketchengine.eu/bonito/run.cgi/concordance?corpname=preloaded/guangwai`,
+      `${Config.sketchEngineProxy}?https://app.sketchengine.eu/bonito/run.cgi/concordance?corpname=preloaded/guangwai`,
       {
         json: JSON.stringify({
           lpos: '',
