@@ -44,9 +44,9 @@
             <EntryHeader :entry="entry" :key="`header-${args}`"></EntryHeader>
             <DefinitionsList
               :key="`def-list-${args}`"
-              v-if="entry.translations"
+              v-if="entry.definitions"
               class="mt-4"
-              :definitions="[entry.translations.tl]"
+              :definitions="entry.definitions.split(', ')"
             ></DefinitionsList>
           </div>
         </div>

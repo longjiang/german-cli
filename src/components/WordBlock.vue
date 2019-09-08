@@ -47,6 +47,10 @@
             {{ match.table !== 'declension' ? match.table : '' }}
             of
           </div>
+          <div>
+            <span style="color: #999">/{{ word.pronunciation }}/</span
+            ><Speak :text="word.bare" :mp3="word.audio" class="ml-1" />
+          </div>
           <a :href="`#/dictionary/freedict/${words[0].id}`"
             ><b
               :data-level="word.level || 'outside'"
@@ -60,7 +64,6 @@
             style="font-size: 0.8em; position:relative; bottom: 0.2rem;"
             >{{ word.level }}</span
           >
-          <Speak :text="word.bare" :mp3="word.audio" class="ml-1" />
         </div>
         <div>
           <span
@@ -70,8 +73,8 @@
             >{{ word.verbs ? abbreviate(word.verbs.aspect) : '' }}
             {{ abbreviate(word.type) }}
           </span>
-          <span class="word-translation" v-if="word.translations">
-            <em>{{ word.translations.tl }}</em>
+          <span class="word-translation" v-if="word.definitions">
+            <em>{{ word.definitions }}</em>
           </span>
         </div>
       </div>
@@ -158,8 +161,7 @@ export default {
       let forms = [this.text.toLowerCase()]
       if (this.words.length > 0) {
         for (let word of this.words) {
-          let wordForms =
-            (await (await this.$openGerman).wordForms(word)) || []
+          let wordForms = (await (await this.$openGerman).wordForms(word)) || []
           wordForms = wordForms
             .map(form => form.form.replace(/'/g, '').toLowerCase())
             .filter(form => form !== '' && form !== '0' && form !== '1')

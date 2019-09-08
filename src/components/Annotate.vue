@@ -50,9 +50,7 @@ export default {
       return sentences.filter(sentence => sentence.trim() !== '')
     },
     markGermanWords(text) {
-      let html = text
-        .replace(/́/g, '')
-        .replace(/([\wа-яё]+)/gi, '<WordBlock>$1</WordBlock>')
+      let html = text.replace(/\b(\S+)\b/gi, '<WordBlock>$1</WordBlock>')
       return html
     },
     recursive(node) {

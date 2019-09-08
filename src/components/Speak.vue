@@ -18,7 +18,7 @@ export default {
         audio.play()
       } else if (this.text) {
         var utterance = new SpeechSynthesisUtterance(this.text)
-        utterance.lang = 'ru'
+        utterance.lang = 'de'
         speechSynthesis.speak(utterance)
       }
     }
