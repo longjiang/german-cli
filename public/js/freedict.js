@@ -25,23 +25,41 @@ const FreeDict = {
     let words = []
     console.log('Parsing "German-English FreeDict Dictionary"...')
     let lines = text.split('\n')
+    let id = 1
     for (let index in lines) {
       index = parseInt(index)
-      if (index % 2 == 0) {
-        let german = lines[index]
-        let matches = german.match(/(.*) \/(.*)\//)
+      let german = lines[index]
+      let matches = german.match(/(.*) \/(.*)\//)
+      if (matches) {
         let matches2 = german.match(/<(.*)>/)
+        // Parse definitions (sometimes it's one line, other times it's multiple lines with numeric headings)
+        let i = 1
+        let isDef = !lines[index + i].match(/(.*) \/(.*)\//)
+        let definitions = []
+        while (isDef) {
+          let def = lines[index + i].replace(/^\d+\./, '').trim()
+          if (def !== '') {
+            definitions.push(def)
+          }
+          i = i + 1
+          if(lines[index + i]) {
+            isDef = !lines[index + i].match(/(.*) \/(.*)\//)
+          } else {
+            isDef = false
+          }
+        }
         let word = {
-          id: index / 2 + 1,
+          id: id++,
           bare: matches ? matches[1] : undefined,
           pronunciation: matches ? matches[1] : undefined,
-          definitions: lines[index + 1],
+          definitions: definitions,
           pos: matches2 && matches2.length > 1 ? matches2[1] : undefined
         }
         word.accented = word.bare
         words[word.id] = word
       }
     }
+    console.log(words)
     return words
   },
   loadTable(table) {

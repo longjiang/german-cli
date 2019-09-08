@@ -46,7 +46,7 @@
               :key="`def-list-${args}`"
               v-if="entry.definitions"
               class="mt-4"
-              :definitions="entry.definitions.split(', ')"
+              :definitions="entry.definitions"
             ></DefinitionsList>
           </div>
         </div>

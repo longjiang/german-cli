@@ -26,9 +26,6 @@
             >
           </a>
         </div>
-        <div v-if="entry.hanja && entry.hanja !== 'NULL'" class="mt-1">
-          <span class="ml-2 entry-hanja">{{ entry.hanja }}</span>
-        </div>
       </div>
     </div>
   </div>
