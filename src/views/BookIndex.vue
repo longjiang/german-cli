@@ -96,6 +96,8 @@ export default {
         this.bookTitle = book.title
         this.bookAuthor = book.author
         this.chapters = book.chapters || []
+      } else {
+        location.hash = '#/book/chapter/' + encodeURIComponent(this.args)
       }
     }
   },

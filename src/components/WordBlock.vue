@@ -18,12 +18,7 @@
       @click="click"
       @mouseover="mouseover"
       @mouseout="mouseout"
-      ><span v-if="saved && words && words.length > 0"
-        ><span v-if="words[0].matches && words[0].matches.length > 0">{{
-          matchCase(words[0].matches[0].form)
-        }}</span
-        ><span v-else>{{ matchCase(words[0].accented) }}</span></span
-      ><span v-else><slot></slot></span
+      ><slot></slot
     ></span>
     <template slot="popover">
       <div
@@ -216,7 +211,7 @@ export default {
     speak(text) {
       if (!speechSynthesis.speaking) {
         this.utterance = new SpeechSynthesisUtterance(text)
-        this.utterance.lang = 'ru'
+        this.utterance.lang = 'de'
         speechSynthesis.speak(this.utterance)
       }
     }

@@ -186,14 +186,17 @@ export default {
       this.chapterTitle = ''
       this.chapterContent = ''
       let chapter = await Library.getChapter(url)
-      this.chapterTitle = chapter.title
-      this.chapterContent = chapter.content
-      if (chapter.book) {
-        this.chapters = chapter.book.chapters
-        this.bookThumbnail = chapter.book.thumbnail
-        this.bookTitle = chapter.book.title
-        this.bookAuthor = chapter.book.author
-        this.bookURL = chapter.book.url
+      console.log(chapter, 'chapter')
+      if (chapter) {
+        this.chapterTitle = chapter.title
+        this.chapterContent = chapter.content
+        if (chapter.book) {
+          this.chapters = chapter.book.chapters
+          this.bookThumbnail = chapter.book.thumbnail
+          this.bookTitle = chapter.book.title
+          this.bookAuthor = chapter.book.author
+          this.bookURL = chapter.book.url
+        }
       }
     },
     previousClick() {

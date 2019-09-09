@@ -51,7 +51,7 @@ const FreeDict = {
         let word = {
           id: id++,
           bare: matches ? matches[1] : undefined,
-          pronunciation: matches ? matches[1] : undefined,
+          pronunciation: matches ? matches[2] : undefined,
           definitions: definitions,
           pos: matches2 && matches2.length > 1 ? matches2[1] : undefined
         }

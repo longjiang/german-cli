@@ -1,58 +1,26 @@
 import Helper from '@/lib/helper'
 
 export default {
-  host: 'ru.wikisource.org',
+  host: 'de.wikisource.org',
   name: 'Wikisource',
-  example: 'https://ru.wikisource.org/wiki/Духовная_война/Душа_и_ее_падение',
+  example:
+    'https://de.wikisource.org/wiki/Hans_Warsch,_der_Hirt_von_Oggersheim',
   logo:
-    'https://ru.wikisource.org/static/images/project-logos/ruwikisource-2x.png',
-  async getBook(url) {
-    let $bookHTML = await Helper.scrape2(url)
-    $bookHTML
-      .find(
-        '#headertemplate, .header_notes, .ws-noexport, .mw-parser-output > table:first-of-type, .mw-editsection, #headerContainer, #toc, .sisitem, .mw-cite-backlink'
-      )
-      .remove()
-    let chapters = []
-    for (let a of $bookHTML.find('.mw-parser-output li a')) {
-      chapters.push({
-        title: $(a).text(),
-        url: Helper.absoluteURL(url, decodeURIComponent($(a).attr('href')))
-      })
-    }
-    let as = $bookHTML.find(
-      '#headerContainer > table:first-child td:nth-child(3) a'
-    )
-    return {
-      url: url,
-      title: $bookHTML.find('#firstHeading').text(),
-      author: $(as[as.length - 1]).text(),
-      thumbnail: '',
-      chapters
-    }
-  },
+    'https://de.wikisource.org/static/images/project-logos/dewikisource.png',
   async getChapter(url) {
     let $chapterHTML = await Helper.scrape2(url)
-    let as = $chapterHTML.find(
-      '#headerContainer > table:first-child td:nth-child(3) a'
-    )
+    let a = $chapterHTML.find('#ws-author a')
+    let bookPath = $(a).attr('href')
     let book = {
+      url: bookPath ? `https://${this.host}${bookPath}` : undefined,
       title: $chapterHTML.find('.subpages a').text(),
-      author: $(as[as.length - 1]).text(),
+      author: $(a).text(),
       thumbnail: '',
       chapters: []
     }
-    const bookPath = $chapterHTML.find('.subpages a').attr('href')
-    if (bookPath) {
-      const bookURL = 'https://ru.wikisource.org' + bookPath
-      book = await this.getBook(bookURL)
-      book.url = bookURL
+    if (book.url) {
+      book = await this.getBook(book.url)
     }
-    $chapterHTML
-      .find(
-        '#headertemplate, .header_notes, .ws-noexport, .mw-parser-output > table:first-of-type, .mw-editsection, #headerContainer, #toc'
-      )
-      .remove()
     $chapterHTML
       .find('*')
       .contents()
@@ -67,13 +35,31 @@ export default {
         Helper.absoluteURL(url, decodeURIComponent($(a).attr('href')))
       )
     }
-    return {
+    let chapter = {
       title: $chapterHTML
         .find('#firstHeading')
         .text()
         .trim(),
       content: $chapterHTML.find('.mw-parser-output').html(),
       book: book
+    }
+    console.log(chapter)
+    return chapter
+  },
+  async getBook(url) {
+    let $bookHTML = await Helper.scrape2(url)
+    let chapters = []
+    for (let a of $bookHTML.find('.mw-parser-output b a')) {
+      chapters.push({
+        title: $(a).text(),
+        url: Helper.absoluteURL(url, decodeURIComponent($(a).attr('href')))
+      })
+    }
+    return {
+      url: url,
+      title: $bookHTML.find('#firstHeading').text(),
+      thumbnail: 'https:' + $bookHTML.find('table img').attr('src'),
+      chapters
     }
   },
   async getBooklist(url) {
@@ -82,9 +68,9 @@ export default {
       .find('.mw-parser-output > p:first-child, #toc, .mw-editsection')
       .remove()
     let list = []
-    for (let a of $html.find('.mw-category li a, .mw-content-ltr li a')) {
+    for (let a of $html.find('.mw-parser-output td:first-child a')) {
       list.push({
-        url: 'https://ru.wikisource.org' + $(a).attr('href'),
+        url: `https://${this.host}${$(a).attr('href')}`,
         title: $(a)
           .text()
           .trim()

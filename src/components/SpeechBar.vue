@@ -70,7 +70,7 @@ export default {
     getVoices() {
       let voices = speechSynthesis
         .getVoices()
-        .filter(voice => voice.lang.startsWith('ru'))
+        .filter(voice => voice.lang.startsWith('de'))
       this.voices = voices
     },
     setvoice(index) {
@@ -90,7 +90,7 @@ export default {
     speak(text) {
       if (this.voices.length === 0) this.getVoices()
       this.utterance = new SpeechSynthesisUtterance(text)
-      this.utterance.lang = 'ru'
+      this.utterance.lang = 'de'
       this.utterance.voice = this.voices[this.voice]
       speechSynthesis.speak(this.utterance)
     },
