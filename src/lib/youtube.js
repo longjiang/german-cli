@@ -161,28 +161,36 @@ export default {
     ).then($html => {
       let playlists = []
       for (let item of $html.find('.yt-shelf-grid-item')) {
-        let playlist = {
-          id: $(item)
+        if (
+          item &&
+          $(item)
             .find('.yt-uix-tile-link')
             .attr('href')
-            .replace(/.*list=(.*)/, '$1'),
-          title: $(item)
-            .find('.yt-uix-tile-link')
-            .text()
-            .trim(),
-          thumbnail:
-            $(item)
-              .find('[data-ytimg]')
-              .attr('data-thumb') ||
-            $(item)
-              .find('[data-ytimg]')
-              .attr('src'),
-          count: $(item)
-            .find('.formatted-video-count-label b')
-            .text()
+        ) {
+          let playlist = {
+            id: $(item)
+              .find('.yt-uix-tile-link')
+              .attr('href')
+              .replace(/.*list=(.*)/, '$1'),
+            title: $(item)
+              .find('.yt-uix-tile-link')
+              .text()
+              .trim(),
+            thumbnail:
+              $(item)
+                .find('[data-ytimg]')
+                .attr('data-thumb') ||
+              $(item)
+                .find('[data-ytimg]')
+                .attr('src'),
+            count: $(item)
+              .find('.formatted-video-count-label b')
+              .text()
+          }
+          playlists.push(playlist)
         }
-        playlists.push(playlist)
       }
+      console.log(playlists, 'playlists')
       callback(playlists)
     })
   }

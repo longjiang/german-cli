@@ -14,7 +14,9 @@
         </div>
         <div v-else>
           <h1 v-if="title" class="mb-5 text-center">
-            <Annotate><span>{{ title }}</span></Annotate>
+            <Annotate
+              ><span>{{ title }}</span></Annotate
+            >
           </h1>
           <h4 class="text-center mt-5">Videos</h4>
           <hr class="mb-5" />
@@ -63,7 +65,7 @@ export default {
         this.args,
         channel => {
           this.title = channel.title
-          this.videos = channel.videos
+          this.videos = channel.videos.filter(video => video.cc)
         },
         3600
       )

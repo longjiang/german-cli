@@ -13,7 +13,7 @@
         :key="lineIndex"
         :class="{
           'transcript-line': true,
-          matched: highlight && line.line.includes(highlight),
+          matched: highlight && line & line.line.includes(highlight),
           'transcript-line-current':
             parseFloat(line.starttime) < currentTime &&
             currentTime <
@@ -32,7 +32,10 @@
             "
         /></Annotate>
         <div class="transcript-line-english">
-          <span v-html="parallellines[lineIndex].line" />
+          <span
+            v-if="parallellines[lineIndex]"
+            v-html="parallellines[lineIndex].line"
+          />
         </div>
       </div>
     </div>
