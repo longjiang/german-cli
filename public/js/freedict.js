@@ -51,7 +51,9 @@ const FreeDict = {
         let word = {
           id: id++,
           bare: matches ? matches[1] : undefined,
-          head: matches ? matches[1].replace(/\(.*\)\/ /, '') : undefined,
+          head: matches
+            ? matches[1].replace(/\(.*\)\/ /, '').toLowerCase()
+            : undefined,
           pronunciation: matches ? matches[2] : undefined,
           definitions: definitions,
           pos: matches2 && matches2.length > 1 ? matches2[1] : undefined
@@ -62,7 +64,7 @@ const FreeDict = {
     }
     return words.sort((a, b) => {
       if (a.head && b.head) {
-        return b.head.length - a.head.length
+        return a.head.length - b.head.length
       }
     })
   },
@@ -103,12 +105,14 @@ const FreeDict = {
     return forms
   },
   lookupFuzzy(text, limit = 30) {
+    text = text.toLowerCase()
     let words = this.words
       .filter(word => word.head && word.head.startsWith(text))
       .slice(0, limit)
     if (words.length === 0) {
       words = this.words
         .filter(word => text.includes(word.head))
+        .sort((a, b) => b.head.length - a.head.length)
         .slice(0, limit)
     }
     return words

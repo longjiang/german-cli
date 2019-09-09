@@ -18,7 +18,6 @@ export default new Vuex.Store({
         })
       ) {
         state.savedWords.push(wordForms)
-        console.log(wordForms, 'saving... wordForms')
         localStorage.setItem(
           'savedFreeDictDeuEngWords',
           JSON.stringify(state.savedWords)
