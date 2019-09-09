@@ -118,6 +118,14 @@ export default {
             'Es gibt diese großen, kniffligen Fragen, auf die es keine einfachen Antworten gibt. Wie komme ich mit dem Tod klar? Was ist so geil an einem Fetisch? Muss ich Angst vor der Psychiatrie haben? Ich suche Antworten auf diese Fragen, Woche für Woche, für euch.',
           avatar:
             'https://yt3.ggpht.com/a/AGF-l7-2w18fZ_BkhZpgnCbYRGoawuAE_ibu-kDhtw=s48-c-k-c0xffffffff-no-rj-mo'
+        },
+        {
+          id: 'UCY_VMT7btMUXjElz79Z4zOQ',
+          title: 'Studiotechniker Nullinger von ANTENNE BAYERN',
+          description:
+            'Des is da YouTube Kanal von Studiotechniker Nullinger von ANTENNE BAYERN. Da gibts Comedy mit Humor und Spaß aus Bayern und bayerische Gaudi.',
+          avatar:
+            'https://yt3.ggpht.com/a/AGF-l7_5RaxlNXExBMTp03NIRUpywKMvp7Hwj3Y-kw=s288-c-k-c0xffffffff-no-rj-mo'
         }
       ]
     }
