@@ -3,8 +3,8 @@ import Helper from '@/lib/helper'
 export default {
   host: /.+\.wikipedia\.org/,
   name: 'Wikipedia',
-  example: 'https://ru.wikipedia.org/wiki/Земство_обедает',
-  logo: 'https://ru.wikipedia.org/static/images/project-logos/ruwiki.png',
+  example: 'https://de.wikipedia.org/wiki/Schlacht_bei_Aigospotamoi',
+  logo: 'https://de.wikipedia.org/static/images/project-logos/dewiki.png',
   async getChapter(url) {
     let $chapterHTML = await Helper.scrape2(url)
     $chapterHTML.find('.mw-parser-output > table:first-of-type').remove()

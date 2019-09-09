@@ -82,14 +82,6 @@ export default {
       location,
       channels: [
         {
-          id: 'UC5sgxwQGzW8BFTqLSMrklJw',
-          title: 'Die Frage',
-          description:
-            'Es gibt diese großen, kniffligen Fragen, auf die es keine einfachen Antworten gibt. Wie komme ich mit dem Tod klar? Was ist so geil an einem Fetisch? Muss ich Angst vor der Psychiatrie haben? Ich suche Antworten auf diese Fragen, Woche für Woche, für euch.',
-          avatar:
-            'https://yt3.ggpht.com/a/AGF-l7-2w18fZ_BkhZpgnCbYRGoawuAE_ibu-kDhtw=s48-c-k-c0xffffffff-no-rj-mo'
-        },
-        {
           id: 'UCZuFrqyZWfw_Zf0OnXWUXyQ',
           title: 'Bayerischer Rundfunk',
           description:
@@ -118,6 +110,14 @@ export default {
           description: 'NEO MAGAZIN ROYALE mit Jan Böhmermann',
           avatar:
             'https://yt3.ggpht.com/a/AGF-l7_ZaHvyJmOQmlXO6wXCVsjuGlN8SkFxxTsykA=s288-c-k-c0xffffffff-no-rj-mo'
+        },
+        {
+          id: 'UC5sgxwQGzW8BFTqLSMrklJw',
+          title: 'Die Frage',
+          description:
+            'Es gibt diese großen, kniffligen Fragen, auf die es keine einfachen Antworten gibt. Wie komme ich mit dem Tod klar? Was ist so geil an einem Fetisch? Muss ich Angst vor der Psychiatrie haben? Ich suche Antworten auf diese Fragen, Woche für Woche, für euch.',
+          avatar:
+            'https://yt3.ggpht.com/a/AGF-l7-2w18fZ_BkhZpgnCbYRGoawuAE_ibu-kDhtw=s48-c-k-c0xffffffff-no-rj-mo'
         }
       ]
     }
