@@ -57,35 +57,37 @@ export default {
       cacheLife
     ).then($html => {
       let videos = []
-      for (let item of $html.find('.yt-lockup-content')) {
-        if (
-          !$(item)
-            .find('.yt-uix-sessionlink')
-            .attr('href')
-            .includes('/channel/') &&
-          !$(item)
-            .find('.yt-uix-sessionlink')
-            .attr('href')
-            .includes('/user/')
-        ) {
-          let badge = $(item).find('.yt-badge')[0]
-          let id = $(item)
-            .find('.yt-uix-sessionlink')
-            .attr('href')
-            .replace('/watch?v=', '')
-          let youtube = {
-            id: id,
-            cc: false,
-            title: $(item)
+      if ($html.find('.yt-lockup-content').length > 0) {
+        for (let item of $html.find('.yt-lockup-content')) {
+          if (
+            !$(item)
               .find('.yt-uix-sessionlink')
-              .attr('title'),
-            thumbnail: this.thumbnail(id),
-            url: 'https://www.youtube.com/watch?v=' + id
+              .attr('href')
+              .includes('/channel/') &&
+            !$(item)
+              .find('.yt-uix-sessionlink')
+              .attr('href')
+              .includes('/user/')
+          ) {
+            let badge = $(item).find('.yt-badge')[0]
+            let id = $(item)
+              .find('.yt-uix-sessionlink')
+              .attr('href')
+              .replace('/watch?v=', '')
+            let youtube = {
+              id: id,
+              cc: false,
+              title: $(item)
+                .find('.yt-uix-sessionlink')
+                .attr('title'),
+              thumbnail: this.thumbnail(id),
+              url: 'https://www.youtube.com/watch?v=' + id
+            }
+            if (badge && badge.innerText === 'CC') {
+              youtube.cc = true
+            }
+            videos.push(youtube)
           }
-          if (badge && badge.innerText === 'CC') {
-            youtube.cc = true
-          }
-          videos.push(youtube)
         }
       }
       callback(videos)

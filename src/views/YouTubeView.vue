@@ -8,7 +8,11 @@
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <h3 :key="title"><Annotate><span>{{ title }}</span></Annotate></h3>
+          <h3 :key="title">
+            <Annotate
+              ><span>{{ title }}</span></Annotate
+            >
+          </h3>
           <hr class="mt-0" />
           <YouTubeChannelCard v-if="channel" :channel="channel" class="mb-5" />
         </div>
@@ -30,22 +34,25 @@
             :parallellines="this.english"
             v-else-if="!loading && hasSubtitles"
           />
-          <div v-else-if="!loading && !hasSubtitles" class="jumbotron pt-4 pb-3 bg-light">
-            <h6>Sorry, this YouTube video does not have German closed captions.</h6>
+          <div
+            v-else-if="!loading && !hasSubtitles"
+            class="jumbotron pt-4 pb-3 bg-light"
+          >
+            <h6>
+              Sorry, this YouTube video does not have German closed captions.
+            </h6>
             <p>
               You can tell if a YouTube video has closed captions by clicking on
               the
               <b>CC</b> icon in the player bar, and click on the
               <font-awesome-icon icon="cog" />next to it. If you can find the
-              subtitle with the language
-              <b>German (Mainland, Taiwan, or Hong Kong)</b> then the video has
-              German subtitles.
+              subtitle with the language <b>German</b> then the video has German
+              subtitles.
             </p>
             <p>
               To look for videos with German subtitles, search with a German
               keyword, and click
-              <b>Filter</b>, then
-              <b>CC</b>.
+              <b>Filter</b>, then <b>CC</b>.
             </p>
           </div>
         </div>
@@ -99,17 +106,17 @@ export default {
     getVideoDetails() {
       this.title = undefined
       this.channel = undefined
-      Helper.scrape(
-        `https://www.youtube.com/watch?v=${this.args}`,
-        $html => {
-          this.title = $html.find('#eow-title').attr('title')
-          this.channel = {
-            id: $html.find('meta[itemprop="channelId"]').attr('content'),
-            avatar: $html.find('#watch7-user-header img').attr('data-thumb'),
-            title: $html.find('#watch7-user-header .yt-uix-sessionlink').text().trim()
-          }
+      Helper.scrape(`https://www.youtube.com/watch?v=${this.args}`, $html => {
+        this.title = $html.find('#eow-title').attr('title')
+        this.channel = {
+          id: $html.find('meta[itemprop="channelId"]').attr('content'),
+          avatar: $html.find('#watch7-user-header img').attr('data-thumb'),
+          title: $html
+            .find('#watch7-user-header .yt-uix-sessionlink')
+            .text()
+            .trim()
         }
-      )
+      })
     },
     async getTranscript() {
       this.german = []
