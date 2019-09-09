@@ -99,7 +99,9 @@ const FreeDict = {
   },
   lookupFuzzy(text, limit = 30) {
     return this.words
-      .filter(word => word.bare && word.bare.includes(text))
+      .filter(
+        word => word.bare && word.bare.replace(/\(.*\)\/ /, '').startsWith(text)
+      )
       .slice(0, limit)
   },
   randomArrayItem(array, start = 0, length = false) {
